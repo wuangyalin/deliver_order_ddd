@@ -1,0 +1,14 @@
+order.send:
+  path: "/api/sendorders"
+  methods: POST
+  controller: App\OrderDelivery\Api\Controller\OrderDeliveryController:issueOrders
+
+order.validate:
+  path: "/api/validateorders"
+  methods: POST
+  controller: App\OrderDelivery\Api\Controller\OrderDeliveryController:processOrders
+
+order.confirm:
+  path: "/api/confirmorders"
+  methods: POST
+  controller: App\OrderDelivery\Api\Controller\OrderDeliveryController:comfirmOrders

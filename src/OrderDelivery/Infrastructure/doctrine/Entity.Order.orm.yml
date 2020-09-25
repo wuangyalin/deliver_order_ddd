@@ -1,0 +1,56 @@
+App\OrderDelivery\Domain\Entity\Order:
+  type: entity
+  table: orders
+  repositoryClass: App\OrderDelivery\Infrastructure\Respository\OrderRepository
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    source:
+      type: string
+      length: 50
+      nullable: false
+    weight:
+      type: integer
+      nullable: false
+    onBehalf:
+      type: string
+      length: 50
+      nullable: true
+    status:
+      type: string
+      length: 10
+      nullable: false
+    createTime:
+      type: datetime
+    isNotifiedCampaign:
+      type: boolean
+      nullable: true
+    isHighPriority:
+      type: boolean
+      nullable: true
+    isValidEnterprise:
+      type: boolean
+      nullable: true
+
+  manyToOne:
+    type:
+      targetEntity: App\OrderDelivery\Domain\ValueObject\OrderType
+      cascade: ["persist"]
+      fetch: EAGER
+
+    customer:
+      targetEntity: App\OrderDelivery\Domain\ValueObject\Person
+      cascade: ["persist"]
+      fetch: EAGER
+
+    campaign:
+      targetEntity: App\OrderDelivery\Domain\ValueObject\Campaign
+      cascade: ["persist"]
+      fetch: EAGER
+
+    enterprise:
+      targetEntity: App\OrderDelivery\Domain\ValueObject\Enterprise
+      cascade: ["persist"]
+      fetch: EAGER

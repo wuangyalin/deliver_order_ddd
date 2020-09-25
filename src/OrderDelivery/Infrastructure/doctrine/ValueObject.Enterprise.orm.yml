@@ -1,0 +1,24 @@
+App\OrderDelivery\Domain\ValueObject\Enterprise:
+    type: entity
+    table: enterprise
+    id:
+        id:
+            type: integer
+            generator: {strategy: AUTO}
+    fields:
+        name:
+            type: string
+            length: 50
+        type:
+            type: string
+        abn:
+            type: string
+    
+    manyToMany:
+        directors:
+            targetEntity: App\OrderDelivery\Domain\ValueObject\Person
+            cascade: [ 'persist' ]
+            fetch: EXTRA_LAZY
+            indexBy: type
+            joinTable:
+                name: enterprise_directors

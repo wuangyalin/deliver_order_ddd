@@ -1,0 +1,22 @@
+services:
+  # App\OrderDelivery\Controller\:
+  #   resource: "../../Controller/"
+  #   tags: ["controller.service_arguments"]
+
+  # # order.send.service:
+  # #   class: App\OrderDelivery\Domain\Service\SendOrderService
+  # #   public: true
+  # #   arguments: ["@doctrine.orm.entity_manager"]
+  # # App\OrderDelivery\Domain\Service\SendOrderService: "@order.send.service"
+
+  # # order.valid.service:
+  # #   class: App\OrderDelivery\Domain\Service\ValidateOrderService
+  # #   public: true
+  # #   arguments: ["@doctrine.orm.entity_manager"]
+  # # App\OrderDelivery\Domain\Service\ValidateOrderService: "@order.valid.service"
+
+  # # order.confirm.service:
+  # #   class: App\OrderDelivery\Domain\Service\ConfirmOrderService
+  # #   public: true
+  # #   arguments: ["@doctrine.orm.entity_manager"]
+  # # App\OrderDelivery\Domain\Service\ConfirmOrderService: "@order.confirm.service"

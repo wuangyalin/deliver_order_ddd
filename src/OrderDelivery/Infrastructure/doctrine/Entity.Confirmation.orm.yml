@@ -1,0 +1,24 @@
+App\OrderDelivery\Domain\Entity\Confirmation:
+  type: entity
+  table: confirmations
+  repositoryClass: App\OrderDelivery\Infrastructure\Respository\OrderRepository
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    status:
+      type: string
+      length: 10
+    info:
+      type: string
+      length: 30
+    receiveDate:
+      type: datetime
+
+  oneToOne:
+    orderDetail:
+      targetEntity: App\OrderDelivery\Domain\Entity\Order
+      joinColumn:
+        name: order_id
+        referencedColumnName: id

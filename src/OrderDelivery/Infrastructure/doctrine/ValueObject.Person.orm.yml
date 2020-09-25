@@ -1,0 +1,13 @@
+App\OrderDelivery\Domain\ValueObject\Person:
+    type: entity
+    table: people
+    id:
+        id:
+            type: integer
+            generator: {strategy: AUTO}
+    fields:
+        name:
+            type: string
+            length: 50
+        address:
+            type: string

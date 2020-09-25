@@ -1,0 +1,17 @@
+App\OrderDelivery\Domain\ValueObject\Campaign:
+    type: entity
+    table: campaigns
+    id:
+        id:
+            type: integer
+            generator: {strategy: AUTO}
+    fields:
+        name:
+            type: string
+            length: 50
+        type:
+            type: string
+            length: 10
+        ad:
+            type: string
+            length: 50
