@@ -40,6 +40,12 @@ class ProcessOrderService implements OrderServiceInterface
         // TODO: check auth token in $data to see if it can process data
         // ---------------------
         $orderList = $this->entityManager->getRepository(Order::class)->getOrdersByStatus(Constant::ORDER_STATUS_INITIAL);
+        if(count($orderList) === 0){
+            return [
+                'status'=> 'no-order',
+                'message' => 'There is no new issued orders'
+            ];
+        }
         foreach($orderList as $key => $order){
             if(strtolower($order->getSource()) == 'email'){
                 $strategy= new ProcessOrderStrategy(new ProcessEmailCampaignOrder());

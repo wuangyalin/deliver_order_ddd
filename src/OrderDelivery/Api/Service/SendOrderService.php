@@ -32,6 +32,12 @@ class SendOrderService implements OrderServiceInterface
      */
     public function processData(array $orders): array
     {
+        if(empty($orders)){
+            return [
+                'status'=> 'Empty',
+                'message' => 'No orders find'
+            ];
+        }
         foreach ($orders as $order) {
             if (strtolower($order['deliveryType']) == 'personaldeliveryexpress') {
                 $strategy = new SendOrderStrategy(new SendPersonalExpressOrder());

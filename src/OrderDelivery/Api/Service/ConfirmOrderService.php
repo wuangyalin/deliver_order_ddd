@@ -36,6 +36,14 @@ class ConfirmOrderService implements OrderServiceInterface
         // TODO: check auth token in $data to see if it can process data
 
         $orderList = $this->entityManager->getRepository(Order::class)->getOrdersByStatus(Constant::ORDER_STATUS_PROCESSED);
+
+        if(count($orderList) === 0){
+            return [
+                'status' => 'no-order',
+                'message' => 'There is no new processed orders'
+            ];
+        }
+
         $confirmationArray = [];
         foreach($orderList as $key => $order){
             if(strtolower($order->getType()->getName()) == 'personaldeliveryexpress'){

@@ -31,13 +31,12 @@ class OrderDeliveryController extends AbstractController
             return new JsonResponse([
                 'status' => 'failed',
                 'message' => 'request type is not a valid json post type'
-            ]);
+            ], 500);
         }
-
         $service = $this->orderServiceFactory->create('send');
         $result = $service->processData($data);
 
-        return new JsonResponse($result);
+        return new JsonResponse($result, 200);
     }
 
     /**
@@ -57,7 +56,7 @@ class OrderDeliveryController extends AbstractController
                 'message' => 'request type is not a valid json post type'
             ]);
         }
-        
+
         $service = $this->orderServiceFactory->create('valid');
         $result = $service->processData($data);
 
