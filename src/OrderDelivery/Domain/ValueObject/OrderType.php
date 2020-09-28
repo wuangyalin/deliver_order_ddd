@@ -2,6 +2,9 @@
 
 namespace App\OrderDelivery\Domain\ValueObject;
 
+use App\OrderDelivery\Domain\Exception\InvalidOrderTypeException;
+
+
 class OrderType
 {
     /**
@@ -25,7 +28,7 @@ class OrderType
     public function __construct(string $name)
     {
         if(!in_array($name, ['personalDelivery','personalDeliveryExpress','enterpriseDelivery'])){
-            throw new \Exception('Invalid order type');
+            throw new InvalidOrderTypeException('Invalid order type');
         }
         $this->name = $name;
     }

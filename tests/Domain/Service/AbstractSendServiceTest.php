@@ -23,5 +23,4 @@ abstract class AbstractSendServiceTest extends TestCase
 
     abstract public function testIssueValidOrders();
     abstract public function testIssueInValidOrders();
-    abstract public function testIssueEmptyValidOrders();
 }

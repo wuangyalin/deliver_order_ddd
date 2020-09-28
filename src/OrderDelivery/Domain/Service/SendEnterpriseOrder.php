@@ -5,6 +5,8 @@ namespace App\OrderDelivery\Domain\Service;
 use App\OrderDelivery\Domain\Entity\Order;
 use App\OrderDelivery\Domain\ValueObject\Person;
 use App\OrderDelivery\Domain\ValueObject\Enterprise;
+use App\OrderDelivery\Domain\Exception\InvalidOrderTypeException;
+
 
 class SendEnterpriseOrder extends SendOrder
 {
@@ -33,7 +35,7 @@ class SendEnterpriseOrder extends SendOrder
             $newOrder->setEnterprise($enterprise);
             $newOrder->setIsValidEnterprise(false);
         } else {
-            throw new \Exception('Invalid Order');
+            throw new InvalidOrderTypeException('Invalid Order');
         }
 
         return $newOrder;

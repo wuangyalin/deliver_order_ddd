@@ -6,12 +6,8 @@ class ConfirmEnterpriseOrderTest extends AbstractConfirmServiceTest
 {
     public function testConfirmValidOrder()
     {
+        //same test logic of ConfirmPersonalExpressOrderTest.php, assertTrue for now
 
-    }
-
-
-    public function testConfirmInValidOrder()
-    {
-        
+        $this->assertTrue(true);
     }
 }

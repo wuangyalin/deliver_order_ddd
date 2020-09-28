@@ -16,8 +16,6 @@ abstract class AbstractProcessServiceTest extends TestCase
 {
 
     protected $samplePersonalOrderObj;
-    protected $samplePersonaExpresslOrderObj;
-    protected $sampleEnterpriseOrderObj;
     
 
     protected function setUp(): void

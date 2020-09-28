@@ -8,6 +8,8 @@ use App\OrderDelivery\Domain\ValueObject\OrderType;
 use App\OrderDelivery\Domain\ValueObject\Person;
 use App\OrderDelivery\Domain\ValueObject\Campaign;
 use App\OrderDelivery\Infrastructure\Ulti\Constant;
+use App\OrderDelivery\Domain\Exception\InvalidEmailCampaignException;
+
 
 
 abstract class SendOrder implements SendOrderInterface
@@ -50,7 +52,7 @@ abstract class SendOrder implements SendOrderInterface
             $orderObj->setCampaign($campaign);
             $orderObj->setIsNotifiedCampaign(false);
         } else {
-            throw new \Exception('Invalid Order');
+            throw new InvalidEmailCampaignException('Invalid Order');
         }
 
         return $orderObj;

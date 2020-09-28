@@ -2,6 +2,8 @@
 
 namespace App\OrderDelivery\Domain\ValueObject;
 
+use App\OrderDelivery\Domain\Exception\InvalidPersonException;
+
 class Person
 {
 
@@ -34,10 +36,10 @@ class Person
     public function __construct(string $name, string $address)
     {
         if(!$name){
-            throw new \Exception('Name is empty');
+            throw new InvalidPersonException('Name is empty');
         }
         if(!$address){
-            throw new \Exception('Address is empty');
+            throw new InvalidPersonException('Address is empty');
         }
         $this->name = $name;
         $this->address = $address;

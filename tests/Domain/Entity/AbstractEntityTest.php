@@ -17,5 +17,6 @@ abstract class AbstractEntityTest extends TestCase
     }
 
     abstract public function testGetters();
-    abstract public function testSetters();
+    abstract public function testValidSetters();
+    abstract public function testInvalidSetters();
 }

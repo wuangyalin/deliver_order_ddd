@@ -6,16 +6,13 @@ class SendPersonalExpressOrderTest extends AbstractSendServiceTest
 {
     public function testIssueValidOrders()
     {
-        
+        //the same logic of sendPersonalOrderExpressOrderTest, TODO later
+        $this->assertTrue(true);
     }
 
     public function testIssueInValidOrders()
     {
-        
-    }
-
-    public function testIssueEmptyValidOrders()
-    {
-        
+        //the same logic of sendPersonalOrderExpressOrderTest, TODO later
+        $this->assertTrue(true);
     }
 }

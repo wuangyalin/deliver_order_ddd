@@ -16,12 +16,7 @@ abstract class AbstractConfirmServiceTest extends TestCase
 {
 
     protected $samplePersonalOrderObj;
-    protected $samplePersonalConfirmationObj;
-    protected $samplePersonalOrderArr;
-    protected $sendPersonalOrderService;
-    protected $processPersonalOrderService;
-    protected $confirmPersonalOrderService;
-    
+    protected $samplePersonalConfirmationObj;    
 
     protected function setUp(): void
     {
@@ -45,5 +40,4 @@ abstract class AbstractConfirmServiceTest extends TestCase
     }
 
     abstract public function testConfirmValidOrder();
-    abstract public function testConfirmInValidOrder();
 }

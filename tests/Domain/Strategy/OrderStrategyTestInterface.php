@@ -8,6 +8,4 @@ interface OrderStrategyTestInterface
     public function testPersonalTypeStrategy();
     public function testPersonalExpressTypeStrategy();
     public function testEnterpriseTypeStrategy();
-    public function testInvalidTypeStrategy();
-
 }

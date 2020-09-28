@@ -18,6 +18,5 @@ abstract class AbstractRepositoryTest extends WebTestCase
     abstract public function testSuccessSave();
     abstract public function testFailSave();    
     abstract public function testSuccessGet();
-    abstract public function testFailGet();
 
 }

@@ -6,6 +6,7 @@ use App\OrderDelivery\Api\Service\SendOrderService;
 use App\OrderDelivery\Api\Service\ConfirmOrderService;
 use App\OrderDelivery\Api\Service\ProcessOrderService;
 use App\OrderDelivery\Api\Service\OrderServiceInterface;
+use App\OrderDelivery\Domain\Exception\InvalidOrderTypeException;
 
 
 class OrderServiceFactory
@@ -44,7 +45,7 @@ class OrderServiceFactory
                 $service = $this->confirmOrderService;
                 break;
             default:
-                throw new \Exception('Delivery Type is not correct');
+                throw new InvalidOrderTypeException('Delivery Type is not correct');
                 break;
         }
 

@@ -10,6 +10,8 @@ use App\OrderDelivery\Domain\Strategy\ConfirmOrderStrategy;
 use App\OrderDelivery\Domain\Service\ConfirmPersonalExpressOrder;
 use App\OrderDelivery\Domain\Service\ConfirmPersonalOrder;
 use App\OrderDelivery\Domain\Service\ConfirmEnterpriseOrder;
+use App\OrderDelivery\Domain\Exception\InvalidOrderTypeException;
+
 
 class ConfirmOrderService implements OrderServiceInterface
 {
@@ -53,7 +55,7 @@ class ConfirmOrderService implements OrderServiceInterface
             }else if(strtolower($order->getType()->getName()) == 'personaldelivery'){
                 $strategy= new ConfirmOrderStrategy(new ConfirmPersonalOrder());
             }else{
-                throw New \Exception('Invalid Order');
+                throw New InvalidOrderTypeException('Invalid Order');
             }
             $tmpConfirmation = $strategy->confirmOrder($order);
 

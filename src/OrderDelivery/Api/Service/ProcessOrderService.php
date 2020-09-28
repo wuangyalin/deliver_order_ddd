@@ -10,6 +10,10 @@ use App\OrderDelivery\Domain\Strategy\ProcessOrderStrategy;
 use App\OrderDelivery\Domain\Service\ProcessEmailCampaignOrder;
 use App\OrderDelivery\Domain\Service\ProcessPersonalExpressOrder;
 use App\OrderDelivery\Domain\Service\ProcessEnterpriseOrder;
+use App\OrderDelivery\Domain\Exception\InvalidEmailCampaignException;
+use App\OrderDelivery\Domain\Exception\InvalidEnterpriseException;
+use App\OrderDelivery\Domain\Exception\InvalidExpressException;
+
 
 
 class ProcessOrderService implements OrderServiceInterface
@@ -50,7 +54,7 @@ class ProcessOrderService implements OrderServiceInterface
             if(strtolower($order->getSource()) == 'email'){
                 $strategy= new ProcessOrderStrategy(new ProcessEmailCampaignOrder());
                 if($strategy->processOrder($order) === false){
-                    throw new \Exception('Not pass the email campaign process');
+                    throw new InvalidEmailCampaignException('Not pass the email campaign process');
                 }else{
                     $orderList[$key]->setIsNotifiedCampaign(true);
                 }
@@ -58,14 +62,14 @@ class ProcessOrderService implements OrderServiceInterface
             if(strtolower($order->getType()->getName()) == 'personaldeliveryexpress'){
                 $strategy= new ProcessOrderStrategy(new ProcessPersonalExpressOrder());
                 if($strategy->processOrder($order) === false){
-                    throw new \Exception('Not pass the Process Personal Express process');
+                    throw new InvalidExpressException('Not pass the Process Personal Express process');
                 }else{
                     $orderList[$key]->setIsHighPriority(true);
                 }
             }else if(strtolower($order->getType()->getName()) == 'enterprisedelivery'){
                 $strategy= new ProcessOrderStrategy(new ProcessEnterpriseOrder());
                 if($strategy->processOrder($order) === false){
-                    throw new \Exception('Not pass the validate enterprise process');
+                    throw new InvalidEnterpriseException('Not pass the validate enterprise process');
                 }else{
                     $orderList[$key]->setIsValidEnterprise(true);
                 }

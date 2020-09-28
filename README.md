@@ -26,10 +26,12 @@
 
 **Domain Driven Design:**
 This is my first time of exposing DDD, so before I do real coding I spent some time on understanding this design concept.
-Based on my research, I came up with some points of DDD:
-1. **Feature:** 
-   1. Used for complex application and focus on each domain, for each domain we use Ubiquitous Language to communicate with domain experts.
+Based on my research and understanding, I came up with some points of DDD:
+1. **Apply:** 
+   1. Use for complex application and focus on each domain, for each domain we use Ubiquitous Language to communicate with domain experts.
    2. Divide a big application into several small domains.
+   3. Becomes popular nowadays with Microservice.
+
    
 2. **Layer:** general can be three layers: 
    1. **Application**: interact with domain services.
@@ -58,6 +60,7 @@ Based on my research, I came up with some points of DDD:
 │   │   │── Doctrine
 │   │   │── Repository
 │   │   │── Ulti
+├── Tests
 └───...
 
 ```
@@ -114,7 +117,7 @@ For the services
 `Domain/Service/SendPersonalOrder.php`
 They are extends `Domain/Service/SendOrder.php` so both services have can share the method `_parseGeneralFieldToEntity` and also have their own methods. 
 
-Same implementation for the other services.
+Same implementation for the other services as well as tests.
 
 **3. Polymorphism:**
 As for the same example, we extend from some other classes, we can override some of the methods. Like the `issueOrder` method in `Domain/Service/SendOrder.php`. 
@@ -143,9 +146,13 @@ I always include interface/abstract classes for both high level modules and low 
 
 ---
 
-**test**:
+**Testing**:
 
-TODO...
+Including functioanl testings as well as unit testings, have same structure of the Project so to improve the test coverage. 
+
+`Note`: Not all the test cases are been implemented but I do demonstrate the design and structures for the testings. 
+eg: including abastract classes or interface for each section.
+
 
 ---
 
@@ -184,7 +191,20 @@ eg:
 
 ---
 
-#### They are some things not in the current version but can be improved/extended:
+#### They are some parts not in the current version but can be improved/extended:
 
-1. Add proper authenticate token/key when do the process or confirm order operations.
-2. Process/Confirm specific orders. 
+1. Add proper authenticate token/key when do the process and confirm order operations.
+2. Process/Confirm specific orders.
+3. Error Handling more user friendly.
+
+---
+
+### Inspired 
+There are few docs when I am doing this practice:
+
+1. Basic DDD concepts: 
+   1. https://www.codeproject.com/Articles/339725/Domain-Driven-Design-Clear-Your-Concepts-Before-Yo
+   2. https://docs.microsoft.com/en-us/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/ddd-oriented-microservice
+   3. https://dzone.com/articles/implementing-domain-driven-design-in-php
+2. Do give me the basic structure concept: https://www.fabian-keller.de/blog/domain-driven-design-with-symfony-a-folder-structure/ 
+3. Sample of DDD with Symfony: https://github.com/bencagri/symfony4-ddd

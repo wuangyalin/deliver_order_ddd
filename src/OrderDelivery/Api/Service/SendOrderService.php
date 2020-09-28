@@ -9,6 +9,7 @@ use App\OrderDelivery\Domain\Service\SendPersonalExpressOrder;
 use App\OrderDelivery\Domain\Service\SendEnterpriseOrder;
 use App\OrderDelivery\Domain\Service\SendPersonalOrder;
 use App\OrderDelivery\Domain\Strategy\SendOrderStrategy;
+use App\OrderDelivery\Domain\Exception\InvalidOrderTypeException;
 
 class SendOrderService implements OrderServiceInterface
 {
@@ -49,7 +50,7 @@ class SendOrderService implements OrderServiceInterface
                 $strategy = new SendOrderStrategy(new SendPersonalOrder());
                 $orderObj = $strategy->issueOrder($order);
             } else {
-                throw new \Exception('Invalid Order '. $order['deliveryType']);
+                throw new InvalidOrderTypeException('Invalid Order '. $order['deliveryType']);
             }
             //save order to db
             $this->entityManager->getRepository(Order::class)->saveOrder($orderObj);

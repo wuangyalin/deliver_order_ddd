@@ -4,6 +4,7 @@ namespace App\OrderDelivery\Domain\ValueObject;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use App\OrderDelivery\Domain\ValueObject\Person;
+use App\OrderDelivery\Domain\Exception\InvalidEnterpriseException;
 
 
 class Enterprise
@@ -54,7 +55,7 @@ class Enterprise
     public function __construct(string $name, string $type, string $abn, array $directors)
     {
         if(!$name){
-            throw new \Exception('Enterprise name is empty');
+            throw new InvalidEnterpriseException('Enterprise name is empty');
         }
         $this->name = $name;
         $this->type = $type;

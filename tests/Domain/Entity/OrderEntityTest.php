@@ -5,13 +5,19 @@ namespace App\Tests\Domain\Entity;
 
 class OrderEntityTest extends AbstractEntityTest
 {
-    public function testSetters()
+    public function testGetters()
     {
         //TODO later, the aim is to test each entity attribute
         $this->assertTrue(true);  
     }
 
-    public function testGetters()
+    public function testValidSetters()
+    {
+        //TODO later, the aim is to test each entity attribute
+        $this->assertTrue(true);  
+    }
+
+    public function testInvalidSetters()
     {
         //TODO later, the aim is to test each entity attribute
         $this->assertTrue(true);  
