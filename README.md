@@ -196,6 +196,7 @@ eg:
 1. Add proper authenticate token/key when do the process and confirm order operations.
 2. Process/Confirm specific orders.
 3. Error Handling more user friendly.
+4. Add Docker for better build/deployment process.
 
 ---
 
